@@ -2,7 +2,7 @@ import json
 import requests
 
 max_step = 20
-target = "sportcar2"
+target = "uglytree"
 
 def send_request(data):
     # 3. 設定 API 的 URL 與 headers
