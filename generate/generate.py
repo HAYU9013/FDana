@@ -2,7 +2,7 @@ import json
 import requests
 
 max_step = 20
-target = "sportcar"
+target = "sportcar2"
 
 def send_request(data):
     # 3. 設定 API 的 URL 與 headers
@@ -35,12 +35,9 @@ def set_target(data):
     data["prompt"]["6"]["inputs"]["image"] = target+".png"
     data["prompt"]["27"]["inputs"]["filename_prefix"] = target+"_original"
     data["prompt"]["28"]["inputs"]["filename_prefix"] = target+"_addnoise"
-    print("EEEEE")
-    print(f"latents/{target}_original")
-    print("ABABAB")
     data["prompt"]["33"]["inputs"]["filename_prefix"] = "latents/"+target+"_original"
     data["prompt"]["34"]["inputs"]["filename_prefix"] = "latents/"+target+"_addnoise"
-    print(data["prompt"]["34"]["inputs"]["filename_prefix"])
+
     return data
 
 def __main__():
@@ -51,8 +48,6 @@ def __main__():
     for i in range(1, max_step-1):
 
         data = set_step(data, i)
-        # print(data)
         send_request(data)
         print("Step", i, "done")
-        breakpoint()
 __main__()
