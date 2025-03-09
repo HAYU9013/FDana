@@ -2,7 +2,6 @@ import json
 import requests
 
 max_step = 20
-target = "uglytree"
 
 def send_request(data):
     # 3. 設定 API 的 URL 與 headers
@@ -30,9 +29,9 @@ def set_step(data, step):
 
     return data
 
-def set_target(data):
+def set_target(data, target):
     assert isinstance(target, str), "Target must be a string"
-    data["prompt"]["6"]["inputs"]["image"] = target+".png"
+    data["prompt"]["6"]["inputs"]["image"] = target
     data["prompt"]["27"]["inputs"]["filename_prefix"] = target+"_original"
     data["prompt"]["28"]["inputs"]["filename_prefix"] = target+"_addnoise"
     data["prompt"]["33"]["inputs"]["filename_prefix"] = "latents/"+target+"_original"
@@ -40,14 +39,15 @@ def set_target(data):
 
     return data
 
-def __main__():
+def generate_target(target="exapmle"):
     # 1. 讀取 JSON 檔案
     with open('one step with latent save.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
-    data = set_target(data)
+    data = set_target(data, target)
     for i in range(1, max_step-1):
 
         data = set_step(data, i)
         send_request(data)
         print("Step", i, "done")
-__main__()
+
+# generate_target()
