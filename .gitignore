@@ -1,2 +1,5 @@
 analyze/hspace
 analyze/latent
+*.zip
+*.tar.gz
+.DS_Store
