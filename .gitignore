@@ -3,3 +3,4 @@ analyze/latent
 *.zip
 *.tar.gz
 .DS_Store
+old_experiment/
