@@ -4,3 +4,17 @@ analyze/latent
 *.tar.gz
 .DS_Store
 old_experiment/
+*.pyc
+*.pyo
+*.swp
+*.swo
+*.log
+*.out
+*.err
+*.pid
+*.lock
+*.tmp
+*.bak
+*.png
+*.pkl
+*.latent
