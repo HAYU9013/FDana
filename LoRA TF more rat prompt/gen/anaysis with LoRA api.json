@@ -36,8 +36,8 @@
     "2": {
       "inputs": {
         "lora_name": "Mimikyu_Pokemon_PDXL.safetensors",
-        "strength_model": 1,
-        "strength_clip": 1,
+        "strength_model": 0.7,
+        "strength_clip": 0.7,
         "model": [
           "3",
           0
