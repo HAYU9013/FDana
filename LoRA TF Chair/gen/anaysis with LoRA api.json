@@ -1,0 +1,171 @@
+
+{
+  "client_id": "ababababa",
+  "prompt":
+  {
+    "1": {
+      "inputs": {
+        "add_noise": "enable",
+        "noise_seed": 902379285311253,
+        "steps": 20,
+        "cfg": 8,
+        "sampler_name": "euler",
+        "scheduler": "normal",
+        "start_at_step": 0,
+        "end_at_step": 10000,
+        "return_with_leftover_noise": "enable",
+        "model": [
+          "2",
+          0
+        ],
+        "positive": [
+          "4",
+          0
+        ],
+        "negative": [
+          "5",
+          0
+        ],
+        "latent_image": [
+          "8",
+          0
+        ]
+      },
+      "class_type": "KSamplerAdvanced"
+    },
+    "2": {
+      "inputs": {
+        "lora_name": "greenchair_webui.safetensors",
+        "strength_model": 1.0,
+        "strength_clip": 1.0,
+        "model": [
+          "3",
+          0
+        ],
+        "clip": [
+          "3",
+          1
+        ]
+      },
+      "class_type": "LoraLoader"
+    },
+    "3": {
+      "inputs": {
+        "ckpt_name": "dreamshaper_8.safetensors"
+      },
+      "class_type": "CheckpointLoaderSimple"
+    },
+    "4": {
+      "inputs": {
+        "text": "building",
+        "clip": [
+          "2",
+          1
+        ]
+      },
+      "class_type": "CLIPTextEncode"
+    },
+    "5": {
+      "inputs": {
+        "text": "",
+        "clip": [
+          "2",
+          1
+        ]
+      },
+      "class_type": "CLIPTextEncode"
+    },
+    "6": {
+      "inputs": {
+        "pixels": [
+          "7",
+          0
+        ],
+        "vae": [
+          "3",
+          2
+        ]
+      },
+      "class_type": "VAEEncode"
+    },
+    "7": {
+      "inputs": {
+        "image": "DALLEBuilding.png",
+        "upload": "image"
+      },
+      "class_type": "LoadImage"
+    },
+    "8": {
+      "inputs": {
+        "model": [
+          "2",
+          0
+        ],
+        "noise": [
+          "9",
+          0
+        ],
+        "sigmas": [
+          "10",
+          0
+        ],
+        "latent_image": [
+          "6",
+          0
+        ]
+      },
+      "class_type": "AddNoise"
+    },
+    "9": {
+      "inputs": {
+        "noise_seed": 714408275311685
+      },
+      "class_type": "RandomNoise"
+    },
+    "10": {
+      "inputs": {
+        "scheduler": "normal",
+        "steps": 20,
+        "denoise": 0.25,
+        "model": [
+          "2",
+          0
+        ]
+      },
+      "class_type": "BasicScheduler"
+    },
+    "11": {
+      "inputs": {
+        "filename_prefix": "latents/ComfyUI",
+        "samples": [
+          "1",
+          0
+        ]
+      },
+      "class_type": "SaveLatent"
+    },
+    "12": {
+      "inputs": {
+        "samples": [
+          "1",
+          0
+        ],
+        "vae": [
+          "3",
+          2
+        ]
+      },
+      "class_type": "VAEDecode"
+    },
+    "15": {
+      "inputs": {
+        "filename_prefix": "ComfyUI",
+        "images": [
+          "12",
+          0
+        ]
+      },
+      "class_type": "SaveImage"
+    }
+  }
+}
